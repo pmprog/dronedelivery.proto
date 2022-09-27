@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{9beda20a-be67-4148-84f8-4b53098e937f}</ProjectGuid>
+    <RootNamespace>dronedel</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(Include);$(IncludePath)</IncludePath>
+    <LibraryPath>$(Lib);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(Include);$(IncludePath)</IncludePath>
+    <LibraryPath>$(Lib);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LIBALLEGRO5;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>allegro.lib;allegro_audio.lib;allegro_acodec.lib;allegro_color.lib;allegro_image.lib;allegro_primitives.lib;allegro_font.lib;allegro_ttf.lib;enet.lib;ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>cd $(ProjectDir)resources
+0construct.cmd</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LIBALLEGRO5;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>allegro.lib;allegro_audio.lib;allegro_acodec.lib;allegro_color.lib;allegro_image.lib;allegro_primitives.lib;allegro_font.lib;allegro_ttf.lib;enet.lib;ws2_32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>cd $(ProjectDir)resources
+0construct.cmd</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="engine\a5\allegro5.c" />
+    <ClCompile Include="engine\a5\audio.c" />
+    <ClCompile Include="engine\a5\graphics.c" />
+    <ClCompile Include="engine\a5\graphics_bitmap.c" />
+    <ClCompile Include="engine\a5\graphics_sprite.c" />
+    <ClCompile Include="engine\a5\graphics_tiles.c" />
+    <ClCompile Include="engine\a5\input.c" />
+    <ClCompile Include="engine\a5\network.c" />
+    <ClCompile Include="engine\engine.c" />
+    <ClCompile Include="engine\mapex.c" />
+    <ClCompile Include="engine\maths.c" />
+    <ClCompile Include="engine\platform.c" />
+    <ClCompile Include="resources\dronehud.c" />
+    <ClCompile Include="resources\jamfox_gba.c" />
+    <ClCompile Include="resources\sprites_pmprog.c" />
+    <ClCompile Include="resources\tiles_game.c" />
+    <ClCompile Include="source\game_map.c" />
+    <ClCompile Include="source\main.c" />
+    <ClCompile Include="source\stage_game.c" />
+    <ClCompile Include="source\stage_menu.c" />
+    <ClCompile Include="source\stage_pmprog.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine\a5\allegro5.h" />
+    <ClInclude Include="engine\engine.h" />
+    <ClInclude Include="engine\mapex.h" />
+    <ClInclude Include="engine\maths.h" />
+    <ClInclude Include="engine\maths_fixed.h" />
+    <ClInclude Include="engine\platform.h" />
+    <ClInclude Include="engine\typedefs.h" />
+    <ClInclude Include="resources\dronehud.h" />
+    <ClInclude Include="resources\jamfox_gba.h" />
+    <ClInclude Include="resources\sprites_pmprog.h" />
+    <ClInclude Include="resources\tiles_game.h" />
+    <ClInclude Include="source\game_map.h" />
+    <ClInclude Include="source\stage_game.h" />
+    <ClInclude Include="source\stage_menu.h" />
+    <ClInclude Include="source\stage_pmprog.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
